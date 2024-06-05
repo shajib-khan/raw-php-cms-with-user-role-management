@@ -25,12 +25,14 @@
         <li class="nav-item">
           <a class="nav-link text-white" href="add-user.php">Add User</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="post.php">Post</a>
+        </li>
       </ul>
       <div class="">
         <a href="add-user.php" class="btn btn-success">Login</a>
         <a href="#" class="btn btn-danger">Logout</a>
         
-      </>
     </div>
   </div>
 </nav>

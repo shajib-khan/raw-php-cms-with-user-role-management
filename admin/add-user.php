@@ -1,8 +1,8 @@
 <?php
 include'index.php';
-  $connect = mysqli_connect("localhost","root","","php_blog");
+include'config.php';
+
 if(isset($_POST['submit'])){
-  $success = "Message successfully sent";
   $first_name= $_POST['first_name'];
   $last_name= $_POST['last_name'];
   $user_name= $_POST['user_name'];
@@ -14,8 +14,8 @@ if(isset($_POST['submit'])){
   mysqli_query($connect, $query);
 }
 ?>
-<div class="container">
-  <form action="" method="POST">
+<div class="container mt-3">
+  <form action="add-user.php" method="POST">
   <div class="form-group">
     <label for="first name">First Name</label>
     <input type="text" class="form-control" name="first_name" placeholder="First name">
