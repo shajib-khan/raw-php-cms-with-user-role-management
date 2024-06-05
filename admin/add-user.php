@@ -46,4 +46,36 @@ if(isset($_POST['submit'])){
     <button name="submit" class="btn btn-primary">Submit</button>
 </div>
 </form>
+
+<table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Password</th>
+      <th scope="col">User Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <?php 
+$read = "SELECT * FROM user";
+$query = mysqli_query($connect,$read);
+while($row = mysqli_fetch_array($query)){?>
+ 
+<tr>
+  <td><?php echo $row["id"];?></td>
+  <td><?php echo $row["first_name"];?></td>
+  <td><?php echo $row["last_name"];?></td>
+  <td><?php echo $row["user_name"];?></td>
+  <td><?php echo $row["password"];?></td>
+  <td><?php echo $row["role"];?></td>
+</tr>
+<?php }?>
+    
+  </tbody>
+</table>
+
 </div>
