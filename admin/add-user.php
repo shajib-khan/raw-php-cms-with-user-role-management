@@ -15,6 +15,7 @@ if(isset($_POST['submit'])){
 }
 ?>
 <div class="container mt-3">
+<h3 class="text-center">Create User</h3>
   <form action="add-user.php" method="POST">
   <div class="form-group">
     <label for="first name">First Name</label>
@@ -67,13 +68,14 @@ $query = mysqli_query($connect,$read);
 while($row = mysqli_fetch_array($query)){?>
  
 <tr>
-  <td><?php echo $row["id"];?></td>
+  <td><?php echo $row["Id"];?></td>
   <td><?php echo $row["first_name"];?></td>
   <td><?php echo $row["last_name"];?></td>
   <td><?php echo $row["user_name"];?></td>
   <td><?php echo $row["password"];?></td>
   <td><?php echo $row["role"] ;?></td>
-  <td><a class="btn btn-primary" href="edit.php?idNo=<?php echo $row["id"]?>">Edit</a></td>
+  <td><a class="btn btn-primary" href="update-user.php?idNo=<?php echo $row['Id'];?>">Edit</a></td>
+  <td><a class="btn btn-danger" href="update-user.php?idNo=<?php echo $row['Id'];?>">Delete</a></td>
 </tr>
 <?php }?>
     
