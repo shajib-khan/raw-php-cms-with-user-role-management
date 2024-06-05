@@ -56,6 +56,7 @@ if(isset($_POST['submit'])){
       <th scope="col">User Name</th>
       <th scope="col">Password</th>
       <th scope="col">User Role</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -71,7 +72,8 @@ while($row = mysqli_fetch_array($query)){?>
   <td><?php echo $row["last_name"];?></td>
   <td><?php echo $row["user_name"];?></td>
   <td><?php echo $row["password"];?></td>
-  <td><?php echo $row["role"];?></td>
+  <td><?php echo $row["role"] ;?></td>
+  <td><a class="btn btn-primary" href="edit.php?idNo=<?php echo $row["id"]?>">Edit</a></td>
 </tr>
 <?php }?>
     
