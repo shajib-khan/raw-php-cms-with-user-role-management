@@ -19,3 +19,33 @@ if(isset($_POST['submit'])){
 </div>
 </form>
 </div>
+<div class="container">
+<table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Category Name</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+<?php 
+$read = "SELECT * FROM category";
+$query = mysqli_query($connect,$read);
+while($row = mysqli_fetch_array($query)){?>
+ 
+<tr>
+  <td><?php echo $row["Id"];?></td>
+  <td><?php echo $row["category_name"];?></td>
+  <td><a class="btn btn-primary" href="update-category.php?idNo=<?php echo $row['Id'];?>">Edit</a></td>
+  <td><a class="btn btn-danger" href="delete-category.php?idNo=<?php echo $row['Id'];?>">Delete</a></td>
+</tr>
+<?php }?>
+    
+  </tbody>
+</table>
+</div>
+
+</div>

@@ -2,7 +2,7 @@
 include 'index.php';
 include 'config.php';
 //$id = $_GET['idNo'];
-$id = intval($_GET['idNo']);
+$id = $_GET['idNo'];
 $read = "SELECT * FROM user WHERE Id=$id";
 $query = mysqli_query($connect,$read);
 $row = mysqli_query($connect,$read);

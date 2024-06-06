@@ -2,6 +2,7 @@
 include'index.php';
 include'config.php';
 
+
 if(isset($_POST['submit'])){
   $first_name= $_POST['first_name'];
   $last_name= $_POST['last_name'];
@@ -9,9 +10,9 @@ if(isset($_POST['submit'])){
   $password= $_POST['password'];
   $role= $_POST['role'];
  
-  $query ="INSERT INTO user(first_name, last_name, user_name, password, role) 
-  VALUES ('$first_name','$last_name','$user_name','$password','$role')";
+  $query ="INSERT INTO user(first_name, last_name, user_name, password, role) VALUES ('$first_name','$last_name','$user_name','$password','$role')"; 
   mysqli_query($connect, $query);
+
 }
 ?>
 <div class="container mt-3">
@@ -57,7 +58,8 @@ if(isset($_POST['submit'])){
       <th scope="col">User Name</th>
       <th scope="col">Password</th>
       <th scope="col">User Role</th>
-      <th scope="col">Action</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -75,7 +77,7 @@ while($row = mysqli_fetch_array($query)){?>
   <td><?php echo $row["password"];?></td>
   <td><?php echo $row["role"] ;?></td>
   <td><a class="btn btn-primary" href="update-user.php?idNo=<?php echo $row['Id'];?>">Edit</a></td>
-  <td><a class="btn btn-danger" href="update-user.php?idNo=<?php echo $row['Id'];?>">Delete</a></td>
+  <td><a class="btn btn-danger" href="delete-user.php?idNo=<?php echo $row['Id'];?>">Delete</a></td>
 </tr>
 <?php }?>
     
