@@ -2,27 +2,14 @@
 include 'index.php';
 include 'config.php';
 //$id = $_GET['idNo'];
-$id = $_GET['idNo'];
-$read = "SELECT * FROM user WHERE Id=$id";
-$query = mysqli_query($connect,$read);
-$row = mysqli_query($connect,$read);
-if(isset($_POST['edit'])){
-    $first_name= $_POST['first_name'];
-    $last_name= $_POST['last_name'];
-    $user_name= $_POST['user_name'];
-    $password= $_POST['password'];
-    $role= $_POST['role'];
+if(isset($_REQUEST['idNo'])){
+    $id= $_REQUEST['idNo'];
 
-    $update="UPDATE user SET 
-    first_name='$first_name', last_name='$last_name',user_name='$user_name',password='$password', role='$role'
-    where Id =$id";
-    $query = mysqli_query($connect,$update);
-    if($query){
-        echo"<script>alert('data send success')</script>";
-    }else{
-        echo"<script>alert('data edit failed')</script>";
+    $getUser="SELECT * FROM user WHERE Id = $id";
+    $selectInfo= mysqli_query($connect,$getUser);
+    while($row = mysqli_fetch_assoc($selectInfo)){
+
     }
-
 }
  ?>
 
@@ -36,15 +23,15 @@ if(isset($_POST['edit'])){
 </div>
 <div class="form-group mt-4">
     <label for="lat name">Last Name</label>
-    <input type="text" class="form-control" name="last_name" placeholder="Last name">
+    <input type="text"  class="form-control" name="last_name" placeholder="Last name">
 </div>
 <div class="form-group mt-4">
     <label for="user name">User Name</label>
-    <input type="text" class="form-control"name="user_name" placeholder="user name">
+    <input type="text" class="form-control"  name="user_name" placeholder="user name">
 </div>
 <div class="form-group mt-4">
     <label for="password">Password</label>
-    <input type="password" class="form-control" name="password" placeholder="Password">
+    <input type="password" class="form-control"  name="password" placeholder="Password">
 </div>
 <div class="form-group mt-4">
     <label>Role</label>
