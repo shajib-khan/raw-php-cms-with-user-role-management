@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
 ?>
 <div class="container mt-3">
 <h3 class="text-center">Create User</h3>
-  <form action="add-user.php" method="POST">
+  <form action="user.php" method="POST">
   <div class="form-group">
     <label for="first name">First Name</label>
     <input type="text" class="form-control" name="first_name" placeholder="First name">
@@ -79,7 +79,9 @@ while($row = mysqli_fetch_array($query)){?>
   <td><a class="btn btn-primary" href="update-user.php?idNo=<?php echo $row['Id'];?>">Edit</a></td>
   <td><a class="btn btn-danger" href="delete-user.php?idNo=<?php echo $row['Id'];?>">Delete</a></td>
 </tr>
-<?php }?>
+
+<?php 
+}?>
     
   </tbody>
 </table>

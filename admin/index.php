@@ -24,7 +24,7 @@
           <a class="nav-link text-white" aria-current="page" href="category.php">Category</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="add-user.php">User</a>
+          <a class="nav-link text-white" href="user.php">User</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="post.php">Post</a>
