@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
     <label for="post name"> Post Title</label>
     <input type="text" class="form-control" name="post_title" placeholder="Post Title">
     <label for="post name">Description</label>
-    <textarea class="form-control" name="post_description" rows="3"></textarea>
+    <textarea class="form-control" placeholder="Post Description" name="post_description" rows="3"></textarea>
     <button class="btn btn-primary mt-2" name="submit">Create</button>    
 </div>
 </form>
@@ -45,7 +45,7 @@ while($row = mysqli_fetch_array($query)){?>
   <td><?php echo $row["Id"];?></td>
   <td><?php echo $row["post_title"];?></td>
   <td><?php echo $row["post_description"];?></td>
-  <td><a class="btn btn-primary" href="update-category.php?idNo=<?php echo $row['Id'];?>">Edit</a></td>
+  <td><a class="btn btn-primary" href="update-post.php?idNo=<?php echo $row['Id'];?>">Edit</a></td>
   <td><a class="btn btn-danger" href="delete-post.php?idNo=<?php echo $row['Id'];?>">Delete</a></td>
 </tr>
 <?php }?>

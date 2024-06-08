@@ -29,11 +29,11 @@ if (mysqli_num_rows($fetch_data_run) > 0) {
     foreach ($fetch_data_run as $row) {
        ?>
        <div class="container mt-5">
-           <h3 class="text-center">Edit User</h3>
+           <h3 class="text-center">Edit Category</h3>
            <form action="update-category.php" method="POST">
                <div class="form-group mt2">
                    <label>First Name</label>
-                   <input type="text" class="form-control" value="<?php echo $row['category_name']; ?>" name="category_name" placeholder="First name" required>
+                   <input type="text" class="form-control" value="<?php echo $row['category_name']; ?>" name="category_name" placeholder="category name" required>
                </div>
                <input type="hidden" name="hidden_id" value="<?php echo $row['Id']; ?>">
                <div class="mt-4">
