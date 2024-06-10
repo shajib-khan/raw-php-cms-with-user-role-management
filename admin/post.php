@@ -6,18 +6,34 @@ include'config.php';
 if(isset($_POST['submit'])){
   $post_title = $_POST['post_title'];  
   $post_description = $_POST['post_description'];  
-  $query ="INSERT INTO post(post_title,post_description)
-  VALUES('$post_title','$post_description')";
+  $category_id = $_POST['category_id'];  
+  $query ="INSERT INTO post(post_title,post_description,category_id)
+  VALUES('$post_title','$post_description','$category_id')";
   mysqli_query($connect, $query);
 }
 ?>
 <div class="container mt-3">
 <form action ="post.php" method="POST">
 <div class="form-group">
-    <label for="post name"> Post Title</label>
+    <label for="post name"> </label>
     <input type="text" class="form-control" name="post_title" placeholder="Post Title">
-    <label for="post name">Description</label>
+    <label for="post name"></label>
     <textarea class="form-control" placeholder="Post Description" name="post_description" rows="3"></textarea>
+    <label for="select"></label>
+    <select class="form-select" name="category_id" aria-label="Default select example">
+  <option selected >select category</option>
+  <?php
+  include "config.php";
+  $query ="SELECT *FROM category";
+  $result = mysqli_query($connect,$query) or die("query failed");
+  if(mysqli_num_rows($result)>0){
+    while ($row = mysqli_fetch_assoc($result)){
+      echo "<option value='{$row['category_id']}'>{$row['category_name']}</option>";
+    }
+  }
+  ;?>
+</select>
+    
     <button class="btn btn-primary mt-2" name="submit">Create</button>    
 </div>
 </form>
@@ -52,4 +68,5 @@ while($row = mysqli_fetch_array($query)){?>
     
   </tbody>
 </table>
+
 </div>
