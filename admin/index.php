@@ -31,7 +31,7 @@
         </li>
       </ul>
       <div class="">
-        <a href="user.php" class="btn btn-success">Login</a>
+        
         <a href="#" class="btn btn-danger">Logout</a>
         
     </div>
