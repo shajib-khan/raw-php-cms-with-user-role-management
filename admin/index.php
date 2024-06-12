@@ -32,12 +32,23 @@
       </ul>
       <div class="">
         
-        <a href="#" class="btn btn-danger">Logout</a>
+        <a href="logout.php" class="btn btn-danger">Logout</a>
         
     </div>
   </div>
 </nav>
 </header>
+<div class="container">
+  <ph>welcome to dashboard</ph>
+<?php
+session_start();
+if($_SESSION['user_name']==true){
+  echo "<h1>welcome to dashboard $_SESSION[user_name]</h1>";
+}else{
+  header('login.php');
+}
+?>
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

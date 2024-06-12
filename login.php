@@ -1,5 +1,6 @@
 <?php
 include'header.php';
+session_start();
 include'./admin/config.php';
 
 if(isset($_POST['user_name'])&&isset($_POST['password'])){
@@ -12,9 +13,10 @@ if(isset($_POST['user_name'])&&isset($_POST['password'])){
 
         $mysqli_num_rows = mysqli_num_rows($sql_query);
         if($mysqli_num_rows){
-            header("location:index.php");
+            header("location:./admin/index.php");
+            $_SESSION['user_name']=$row['user_name'];
         }else{
-            echo 'login invalid';
+            header('login.php');
         }
     }
 }
