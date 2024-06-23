@@ -13,8 +13,9 @@ if(isset($_POST['user_name'])&&isset($_POST['password'])){
 
         $mysqli_num_rows = mysqli_num_rows($sql_query);
         if($mysqli_num_rows){
+            $_SESSION['user_name']=$mysqli_num_rows['user_name'];
             header("location:./admin/index.php");
-            $_SESSION['user_name']=$row['user_name'];
+            
         }else{
             header('login.php');
         }

@@ -39,11 +39,12 @@
 </nav>
 </header>
 <div class="container">
-  <ph>welcome to dashboard</ph>
+ 
 <?php
 session_start();
 if($_SESSION['user_name']==true){
   echo "<h1>welcome to dashboard $_SESSION[user_name]</h1>";
+  
 }else{
   header('login.php');
 }
