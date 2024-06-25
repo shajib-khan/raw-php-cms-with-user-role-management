@@ -1,26 +1,29 @@
 <?php
 include'header.php';
-session_start();
-include'./admin/config.php';
 
-if(isset($_POST['user_name'])&&isset($_POST['password'])){
-    $user_name= $_POST['user_name'];
-    $password= $_POST['password'];
 
-    if(!empty($user_name)&& !empty($password)){
-        $sql ="SELECT Id FROM user WHERE user_name='$user_name' AND password='$password'";
-        $sql_query = mysqli_query($connect, $sql);
+if(isset($_POST['login'])){
+    include'./admin/config.php';
 
-        $mysqli_num_rows = mysqli_num_rows($sql_query);
-        if($mysqli_num_rows){
-            $_SESSION['user_name']=$mysqli_num_rows['user_name'];
-            header("location:./admin/index.php");
-            
-        }else{
-            header('login.php');
-        }
+  $user_name= mysqli_real_escape_string($connect,$_POST['user_name']);
+   $password=($_POST['password']);
+
+   $query ="SELECT Id,user_name FROM user WHERE user_name='$user_name' AND password='$password'";
+   $result =mysqli_query($connect,$query) or die("Query Failed");
+   if(mysqli_num_rows($result)>0){
+    while($row = mysqli_fetch_assoc($result)){
+        session_start();
+        $_SESSION['Id']=$row['Id'];
+        $_SESSION['user_name']=$row['user_name'];
+        $_SESSION['password']=$row['password'];
+        header("location:./admin/index.php");
     }
+
+   }else{
+    echo "user name and password are not matched.";
+   }
 }
+
 ?>
 <div class="container mt-3">
 <form method="POST">

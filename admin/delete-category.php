@@ -1,7 +1,6 @@
 <?php 
-include 'config.php';
-include 'index.php';
-
+include'index.php';
+include'config.php';
 $id =$_GET['idNo'];
 
 $delete = "DELETE FROM category WHERE Id = $id";

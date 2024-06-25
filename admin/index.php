@@ -17,9 +17,8 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse  " id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0   ">
-
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item ">
           <a class="nav-link text-white" aria-current="page" href="category.php">Category</a>
         </li>
@@ -31,25 +30,11 @@
         </li>
       </ul>
       <div class="">
-        
-        <a href="logout.php" class="btn btn-danger">Logout</a>
-        
+      <a href="logout.php" class="btn btn-danger">Logout</a> 
     </div>
   </div>
 </nav>
 </header>
-<div class="container">
- 
-<?php
-session_start();
-if($_SESSION['user_name']==true){
-  echo "<h1>welcome to dashboard $_SESSION[user_name]</h1>";
-  
-}else{
-  header('login.php');
-}
-?>
-</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

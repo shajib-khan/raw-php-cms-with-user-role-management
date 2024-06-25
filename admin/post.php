@@ -1,8 +1,6 @@
 <?php
 include'index.php';
 include'config.php';
-
-
 if(isset($_POST['submit'])){
   $post_title = $_POST['post_title'];  
   $post_description = $_POST['post_description'];  
@@ -33,12 +31,10 @@ if(isset($_POST['submit'])){
   }
   ;?>
 </select>
-    
     <button class="btn btn-primary mt-2" name="submit">Create</button>    
 </div>
 </form>
 </div>
-
 <div class="container">
 <table class="table mt-5">
   <thead>
@@ -50,13 +46,11 @@ if(isset($_POST['submit'])){
       <th scope="col">Delete</th>
     </tr>
   </thead>
-  <tbody>
-    
+  <tbody> 
 <?php 
 $read = "SELECT * FROM post";
 $query = mysqli_query($connect,$read);
 while($row = mysqli_fetch_array($query)){?>
- 
 <tr>
   <td><?php echo $row["Id"];?></td>
   <td><?php echo $row["post_title"];?></td>
@@ -64,8 +58,7 @@ while($row = mysqli_fetch_array($query)){?>
   <td><a class="btn btn-primary" href="update-post.php?idNo=<?php echo $row['Id'];?>">Edit</a></td>
   <td><a class="btn btn-danger" href="delete-post.php?idNo=<?php echo $row['Id'];?>">Delete</a></td>
 </tr>
-<?php }?>
-    
+<?php }?>  
   </tbody>
 </table>
 

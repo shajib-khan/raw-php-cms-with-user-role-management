@@ -1,9 +1,7 @@
 <?php
-include 'index.php';
+include'index.php';
 include 'config.php';
-
 $id = $_GET['idNo'];
-
 // Update data
 if (isset($_POST['editPost'])) {
     $post_title = $_POST['post_title'];

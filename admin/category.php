@@ -1,8 +1,6 @@
 <?php
 include'index.php';
 include'config.php';
-
-
 if(isset($_POST['submit'])){
   $category_name = $_POST['category_name'];  
   $query ="INSERT INTO category(category_name)
@@ -30,12 +28,10 @@ if(isset($_POST['submit'])){
     </tr>
   </thead>
   <tbody>
-    
 <?php 
 $read = "SELECT * FROM category";
 $query = mysqli_query($connect,$read);
 while($row = mysqli_fetch_array($query)){?>
- 
 <tr>
   <td><?php echo $row["Id"];?></td>
   <td><?php echo $row["category_name"];?></td>
@@ -43,7 +39,6 @@ while($row = mysqli_fetch_array($query)){?>
   <td><a class="btn btn-danger" href="delete-category.php?idNo=<?php echo $row['Id'];?>">Delete</a></td>
 </tr>
 <?php }?>
-    
   </tbody>
 </table>
 </div>
