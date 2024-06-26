@@ -1,7 +1,5 @@
 <?php
-include'header.php';
-
-
+    include'header.php';
 if(isset($_POST['login'])){
     include'./admin/config.php';
 
