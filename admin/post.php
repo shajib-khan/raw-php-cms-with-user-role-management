@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
 }
 ?>
 <div class="container mt-3">
-<form action ="post.php" method="POST">
+<form action ="save-post.php" method="POST">
 <div class="form-group">
     <label for="post name"> </label>
     <input type="text" class="form-control" name="post_title" placeholder="Post Title">
